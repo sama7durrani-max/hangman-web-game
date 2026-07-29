@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Modal styles */
+        .modal {
+            display: {% if game_state['popup_title'] %}block {% else %}none{% endif %};
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .modal-content h2 {
+            font-size: 50px;
+            color: #333;
+        }
+
+        .modal-content p {
+            font-size: 20px;
+            color: #888;
+        }
+
+        .close-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .close-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Larger Winner/Loser text */
+        .win-message, .lose-message {
+            font-size: 50px;
+            text-align: center;
+            color: #ff6347; /* Tomato color for emphasis */
+        }
+
+        /* Word placeholders */
+        .word-placeholder {
+            font-size: 30px;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+
+        .joke {
+            font-size: 20px;
+            text-align: center;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Hangman Game</h1>
+        <h2>Hello, {{ username }}!</h2>
+        <p>Category: {{ game_state['category'] }}</p>
+
+        <!-- Display the guessed word with underscores -->
+        <p class="word-placeholder">{{ ''.join(game_state['word_placeholder']) }}</p>
+
+        <img src="{{ url_for('static', filename='images/' + hangman_image) }}" alt="Hangman">
+        <p>Attempts Left: {{ game_state['attempts_left'] }}</p>
+        <p>Score: {{ game_state['score'] }}</p>
+        <p>Hint Chances: {{ game_state['hint_chances'] }}</p>
+        <p>{{ game_state['message'] }}</p>
+
+        <form action="/guess" method="POST">
+            <input type="text" name="guess" maxlength="1" required>
+            <input type="hidden" name="username" value="{{ username }}">
+            <button type="submit">Guess Letter</button>
+        </form>
+
+        <form action="/hint" method="POST">
+            <input type="hidden" name="username" value="{{ username }}">
+            <button type="submit" {% if game_state['hint_chances'] == 0 %}disabled{% endif %}>Use Hint</button>
+        </form>
+
+        <form method="POST" action="{{ url_for('go_home') }}">
+            <button type="submit">Restart</button>
+        </form>
+
+        <!-- Winner/Loser messages -->
+        {% if game_state['popup_title'] %}
+            <div class="modal">
+                <div class="modal-content">
+                    <h2>{{ game_state['popup_title'] }}</h2>
+                    <p>{{ game_state['popup_message'] }}</p>
+                    <p>{{ game_state['sarcastic_joke'] }}</p>
+                    <form action="{{ url_for('go_home') }}" method="POST">
+                        <button type="submit" class="close-btn">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+
+        <p class="joke">{{ joke }}</p>
+
+        <a href="/scoreboard"><button>View Scoreboard</button></a>
+    </div>
+</body>
+</html>
