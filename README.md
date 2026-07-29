@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="screenshots/banner.png" alt="Hangman Web Game Banner" width="100%">
+</p>
+
+
 # 🎮 Hangman Web Game
 
 An interactive Hangman web application built using **Python** and **Flask**.
@@ -68,21 +73,6 @@ http://127.0.0.1:5000
 ---
 
 ## 📷 Screenshots
-
-<img width="452" height="241" alt="image" src="https://github.com/user-attachments/assets/1b2b4b62-11ef-4940-876f-e7bdc025bdbc" />
-
-<img width="413" height="241" alt="image" src="https://github.com/user-attachments/assets/dd4e5031-0a53-4972-bec9-ebd635fd249e" />
-
-<img width="428" height="293" alt="image" src="https://github.com/user-attachments/assets/d8f963b2-fe4c-4639-90af-67cbbb9fe994" />
-
-<img width="413" height="282" alt="image" src="https://github.com/user-attachments/assets/ebf77046-c3f0-448a-adcb-bf949957aa0c" />
-
-<img width="410" height="240" alt="image" src="https://github.com/user-attachments/assets/cac644c1-8e6b-4a0e-9804-638745fce4d5" />
-
-<img width="394" height="237" alt="image" src="https://github.com/user-attachments/assets/57279f6a-1828-474b-8684-6b4c7988b58c" />
-
-
-
 
 ---
 
