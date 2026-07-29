@@ -34,7 +34,13 @@ The application allows users to play the classic Hangman game through a web inte
 
 ---
 
-## 🛠 Technologies Used
+
+## 🛠 Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask)
+![HTML5](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
 - Python
 - Flask
@@ -73,6 +79,46 @@ http://127.0.0.1:5000
 ---
 
 ## 📷 Screenshots
+
+
+### 🏠 Home Page
+
+<p align="center">
+<img src="screenshots/home.png" width="800">
+</p>
+
+---
+
+### 🎮 Gameplay
+
+<p align="center">
+<img src="screenshots/gameplay.png" width="800">
+  
+<img src="screenshots/gameplay2.png" width="800">
+</p>
+
+---
+
+### 🏆 Winner Screen
+
+<p align="center">
+<img src="screenshots/win msg.png" width="800">
+</p>
+
+---
+
+### 🏆 GameOver Screen
+
+<p align="center">
+<img src="screenshots/gameover.png" width="800">
+</p>
+
+
+### 📊 Scoreboard
+
+<p align="center">
+<img src="screenshots/scoreboard.png" width="800">
+</p>
 
 ---
 
